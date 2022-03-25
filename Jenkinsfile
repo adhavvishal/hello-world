@@ -15,6 +15,12 @@ node
         sh 'scp -r -o StrictHostKeyChecking=no Dockerfile webapp/target/webapp.war root@35.89.52.26:/root/'
     }
     
+    stage ('Remove'){
+        sh 'ssh root@35.89.52.26 docker stop tom'
+        sh 'ssh root@35.89.52.26 docker rm tom'
+        sh 'ssh root@35.89.52.26 docker rmi tom tomcat'
+    }
+    
     stage ('Docker Build'){
         sh 'ssh root@35.89.52.26 docker build -t tom .' 
     }
