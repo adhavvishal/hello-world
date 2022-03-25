@@ -1,8 +1,8 @@
 # Pull base image 
-From tomcat-9.0.60
+From tomcat
 
 # Maintainer 
 MAINTAINER "adhavvishal26@gmail.com" 
-COPY ./webapp.war /opt/apache-tomcat-9.0.60/webapps/
+COPY ./webapp.war /usr/local/tomcat/webapps/
 
-EXPOSE 8090
+EXPOSE 8080
